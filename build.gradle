@@ -7,6 +7,22 @@ group = project.maven_group
 
 base { archivesName = project.archives_base_name }
 
+sourceSets {
+    main {
+        java {
+            srcDir '.'
+            include '*.java'
+        }
+    }
+}
+
+processResources {
+    from('fabric.mod.json')
+    from('en_us.json') {
+        into 'assets/paytracker/lang'
+    }
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
